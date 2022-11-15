@@ -32,7 +32,7 @@ public:
         surveyAccuracy(_surveyAccuracy), surveyDuration(_surveyDuration), nh(_nh) {
             surveyInStatus = new SurveyInStatus();
             pReportSatInfo = new satellite_info_s();
-            RTCMPublisher = nh->advertise<mavros_msgs::RTCM>("rtcm_out", 1);
+            RTCMPublisher = nh->advertise<mavros_msgs::RTCM>("/mavros/gps_rtk/send_rtcm", 1);
             GPSPublisher = nh->advertise<sensor_msgs::NavSatFix>("gps", 1);
     };
 	~RTKNode() {
